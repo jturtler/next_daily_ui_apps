@@ -8,7 +8,7 @@ type Props = {
 };
 
 const Layout = ({ children, title = "This is the default title" }: Props) => (
-  <div>
+  <div className="flex items-center justify-center min-h-screen bg-gray-100">
     <Head>
       <title>{title}</title>
       <meta charSet="utf-8" />
