@@ -16,11 +16,9 @@ const Layout = ({ children, title = "This is the default title" }: Props) => (
     </Head>
     <header>
       <nav className="bg-black py-2 text-gray-200">
-        <Link className="px-3 hover:text-blue-400" href="/">Home</Link> | 
-        <Link className="px-3 hover:text-blue-400" href="/about">About</Link> |{" "}
-        <Link className="px-3 hover:text-blue-400" href="/users">Users List</Link> |{" "}
-        <Link className="px-3 hover:text-blue-400" href="/layoutCenter">Center</Link> |{" "}
-        <a className="px-3 hover:text-blue-400" href="/api/users">Users API</a>
+        <Link className="px-3 hover:text-blue-400" href="/">L_Center1</Link> |{" "}
+        <Link className="px-3 hover:text-blue-400" href="/layoutCenter">L_Center2</Link> |{" "}
+        <Link className="px-3 hover:text-blue-400" href="/layoutCenter">L_3Parts</Link> |{" "}
       </nav>
     </header>
     {children}
