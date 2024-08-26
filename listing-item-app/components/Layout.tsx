@@ -8,24 +8,22 @@ type Props = {
 };
 
 const Layout = ({ children, title = "This is the default title" }: Props) => (
-  <div className="">
+  <div className="flex flex-col min-h-screen">
     <Head>
       <title>{title}</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
-    <header>
-      <nav className="bg-black py-2 text-gray-200">
-        <Link className="px-3 hover:text-blue-400" href="/">L_Center1</Link> |{" "}
-        <Link className="px-3 hover:text-blue-400" href="/layoutCenter">L_Center2</Link> |{" "}
-        <Link className="px-3 hover:text-blue-400" href="/layoutCenter">L_3Parts</Link> |{" "}
-      </nav>
-    </header>
-    {children}
-    <footer>
-      <hr />
-      <span>I'm here to stay (Footer)</span>
-    </footer>
+    <nav className="absolute top-[50px] right-[100px] z-10 w-[100px] h-[180px] bg-black p-1 shadow-md grid text-gray-200">
+        <Link className="p-1 text-sm hover:text-blue-400" href="/">Home</Link>
+        <Link className="p-1 text-sm hover:text-blue-400" href="/layoutCenter">Center</Link>
+        <Link className="p-1 text-sm hover:text-blue-400" href="/layoutDashboard">Dashboard</Link>
+        <Link className="p-1 text-sm hover:text-blue-400" href="/layoutCards">Cards</Link>
+        <Link className="p-1 text-sm hover:text-blue-400" href="/layoutFlexFooter">FlexFooter</Link>
+    </nav>
+    <div className="flex-1">
+        {children}
+    </div>
   </div>
 );
 
