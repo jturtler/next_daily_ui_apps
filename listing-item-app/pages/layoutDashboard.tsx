@@ -2,6 +2,7 @@ import Link from "next/link";
 import Layout from "../components/Layout";
 import { useState } from "react";
 import ModalExplain from "../components/ModalExplain";
+import DraggableDiv from "../components/Draggable";
 
 // const LayoutCenter = () => ( <-></-> ) <-- Was this before
 export default function LayoutDashboard () {
@@ -20,9 +21,12 @@ export default function LayoutDashboard () {
   return (
   <Layout title="Layout Center | Next.js + TypeScript Example">
 
-    <div className="absolute top-[240px] right-[100px] z-10 w-[100px] h-[50px] bg-gray-200 p-1 shadow-md grid">
+  <DraggableDiv initialX={window.innerWidth - 100} initialY={280}>
+    <div className="w-[100px] h-[100px] bg-gray-200 p-1 shadow-md" >
       <button className={ cssBtnCmn + " bg-green-600 hover:bg-green-200" } onClick={() => setShowModal(true) } >Explain</button>
     </div>
+  </DraggableDiv>
+
     <div className="flex h-screen">
       <div className="w-24 bg-gray-800 text-white p-4">
         <h2 className="text-lg font-semibold">Sidebar</h2>

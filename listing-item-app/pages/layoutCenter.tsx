@@ -2,6 +2,7 @@ import Link from "next/link";
 import Layout from "../components/Layout";
 import { useState } from "react";
 import ModalExplain from "../components/ModalExplain";
+import DraggableDiv from "../components/Draggable";
 
 // const LayoutCenter = () => ( <-></-> ) <-- Was this before
 
@@ -20,16 +21,20 @@ const LayoutCenter = () =>
 
   // NOTE: WHY THIS DOES NOT WORK? -->  const getBtnCss = ( btnVal ) => ( cssBtnCmn + ( btnVal === btnChoice ) ? cssBtnSelected: cssBtnNotSelected )
   const getBtnCss = ( btnVal ) => ( btnVal === btnChoice ) ? cssBtnCmn + cssBtnSelected: cssBtnCmn + cssBtnNotSelected;
+  //     <div className="absolute top-[240px] right-[100px] z-10 w-[100px] h-[50px] bg-gray-200 p-1 shadow-md grid">
+
 
   return (
   <Layout title="Layout Center | Next.js + TypeScript Example">
 
-    <div className="absolute top-[240px] right-[100px] z-10 w-[100px] h-[50px] bg-gray-200 p-1 shadow-md grid">
-      <button className={ getBtnCss( '1' ) } onClick={() => setBtnChoice('1')}>Basic</button>
-      <button className={ getBtnCss( '2' ) } onClick={() => setBtnChoice('2')}>Covered</button>
-      <button className={ cssBtnCmn + " bg-green-600 hover:bg-green-200" } onClick={() => setShowModal(true) } >Explain</button>
-    </div>
-
+    <DraggableDiv initialX={window.innerWidth - 100} initialY={240}>
+      <div className="w-[100px] h-[100px] bg-gray-200 p-1 shadow-md grid" >
+        <button className={ getBtnCss( '1' ) } onClick={() => setBtnChoice('1')}>Basic</button>
+        <button className={ getBtnCss( '2' ) } onClick={() => setBtnChoice('2')}>Covered</button>
+        <button className={ cssBtnCmn + " bg-green-600 hover:bg-green-200" } onClick={() => setShowModal(true) } >Explain</button>      
+      </div>
+    </DraggableDiv>
+  
     <div className="flex items-center justify-center h-screen bg-gray-200">
       <div className={ "bg-white p-8 rounded-lg shadow-lg" + widthOption }>
         <h1 className="text-2xl font-bold">Hello, World!</h1>

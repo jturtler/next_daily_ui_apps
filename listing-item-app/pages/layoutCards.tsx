@@ -2,6 +2,7 @@ import Link from "next/link";
 import Layout from "../components/Layout";
 import { useState } from "react";
 import ModalExplain from "../components/ModalExplain";
+import DraggableDiv from "../components/Draggable";
 
 const LayoutCards = () => 
 {
@@ -19,9 +20,13 @@ const LayoutCards = () =>
 
   return (
   <Layout title="Layout Center | Next.js + TypeScript Example">
-    <div className="absolute top-[240px] right-[100px] z-10 w-[100px] h-[50px] bg-gray-200 p-1 shadow-md grid">
-      <button className={ cssBtnCmn + " bg-green-600 hover:bg-green-200" } onClick={() => setShowModal(true) } >Explain</button>
-    </div>
+
+    <DraggableDiv initialX={window.innerWidth - 100} initialY={280}>
+      <div className="w-[100px] h-[100px] bg-gray-200 p-1 shadow-md" >
+        <button className={ cssBtnCmn + " bg-green-600 hover:bg-green-200" } onClick={() => setShowModal(true) } >Explain</button>
+      </div>
+    </DraggableDiv>
+
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-6 bg-gray-100">
       <div className="bg-white p-4 rounded-lg shadow-lg">
         <h3 className="text-lg font-semibold">Card 1</h3>
